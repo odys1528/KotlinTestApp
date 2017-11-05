@@ -1,5 +1,6 @@
 package com.odys.kotlintestapp
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -12,7 +13,8 @@ class MainActivity : AppCompatActivity() {
 
         start_button.setOnClickListener {
             println("start button clicked")
-
+            val intent = Intent(this, GameActivity::class.java)
+            startActivity(intent)
         }
 
         exit_button.setOnClickListener {
