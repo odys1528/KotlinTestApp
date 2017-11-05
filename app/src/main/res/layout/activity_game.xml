@@ -106,6 +106,14 @@
                 android:layout_alignTop="@+id/sw_button"
                 android:layout_alignEnd="@+id/rose_image"
                 android:text="@string/south_east" />
+
+            <Button
+                android:id="@+id/quit_button"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:text="@string/quit" />
         </RelativeLayout>
 
         <LinearLayout

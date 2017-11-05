@@ -14,7 +14,9 @@ class MainActivity : AppCompatActivity() {
         start_button.setOnClickListener {
             println("start button clicked")
             val intent = Intent(this, GameActivity::class.java)
+            intent.putExtra("description", "nana")
             startActivity(intent)
+            finish()
         }
 
         exit_button.setOnClickListener {
