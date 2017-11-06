@@ -45,9 +45,20 @@ class GameActivity : AppCompatActivity() {
                 disableAllButtons()
                 break
             }
-
+            //todo wait for button click
 //            location.exits.keys.forEach {
-//                print("$it ")
+//                when(it) {
+//                    "U" -> up_button.isEnabled = true
+//                    "D" -> down_button.isEnabled = true
+//                    "N" -> north_button.isEnabled = true
+//                    "S" -> south_button.isEnabled = true
+//                    "E" -> east_button.isEnabled = true
+//                    "W" -> west_button.isEnabled = true
+//                    "NE" -> ne_button.isEnabled = true
+//                    "NW" -> nw_button.isEnabled = true
+//                    "SE" -> se_button.isEnabled = true
+//                    "SW" -> sw_button.isEnabled = true
+//                }
 //            }
 //
 //            val direction = readLine()?.toUpperCase() ?: "Z"
