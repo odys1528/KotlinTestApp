@@ -3,6 +3,7 @@ package com.odys.kotlintestapp
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_game.*
 
 class GameActivity : AppCompatActivity() {
@@ -11,10 +12,8 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-        //println(intent.getStringExtra("description"))
-
         quit_button.setOnClickListener {
-            println("quit. back to MainActivity")
+            Toast.makeText(this, "quit. back to MainActivity", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
