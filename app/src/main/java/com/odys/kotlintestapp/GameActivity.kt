@@ -19,8 +19,6 @@ class GameActivity : AppCompatActivity() {
             finish()
         }
 
-        disableAllButtons()
-
         game()
 
     }
@@ -45,7 +43,7 @@ class GameActivity : AppCompatActivity() {
 //            if (location.locationID == 0) {
 //                break
 //            }
-//
+            disableAllButtons()
 //            print("Available exits are: ")
 //            location.exits.keys.forEach {
 //                print("$it ")

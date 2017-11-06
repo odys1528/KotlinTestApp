@@ -8,7 +8,7 @@ fun readLocationInfo() : Map<Int, Location> {
 
     val locations = mutableMapOf<Int, Location>()
 
-    File("C:\\Users\\jolka\\AndroidStudioProjects\\KotlinTestApp\\app\\src\\main\\java\\com\\odys\\kotlintestapp\\data\\locations_big.txt")
+    File("locations_big.txt")
             .reader().forEachLine {
         val tokens = it.split("`")
 
@@ -16,7 +16,7 @@ fun readLocationInfo() : Map<Int, Location> {
         locations[location.locationID] = location
     }
 
-    File("C:\\Users\\jolka\\AndroidStudioProjects\\KotlinTestApp\\app\\src\\main\\java\\com\\odys\\kotlintestapp\\data\\directions_big.txt")
+    File("directions_big.txt")
             .reader().forEachLine {
         val tokens = it.split(",")
 
