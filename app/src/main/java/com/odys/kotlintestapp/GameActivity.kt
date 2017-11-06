@@ -30,21 +30,22 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun game() {
-        //val locations = readLocationInfo()
+        val locations = readLocationInfo(applicationContext.assets.open("locations_big.txt").reader(),
+                applicationContext.assets.open("directions_big.txt").reader())
         var loc = 0//64
 
-//        while (true) {
-//
-//            val location = locations[loc] ?: Location(0,
-//                    "Sorry, something went wrong, so the game will terminate")
+        while (true) {
 
-            description.text = "nana"//println(location.description)
+            val location = locations[loc] ?: Location(0,
+                    "Sorry, something went wrong, so the game will terminate")
 
-//            if (location.locationID == 0) {
-//                break
-//            }
-            disableAllButtons()
-//            print("Available exits are: ")
+            description.text = location.description
+
+            if (location.locationID == 0) {
+                disableAllButtons()
+                break
+            }
+
 //            location.exits.keys.forEach {
 //                print("$it ")
 //            }
@@ -58,6 +59,6 @@ class GameActivity : AppCompatActivity() {
 //            }
 //
 //
-//        }
+        }
     }
 }
