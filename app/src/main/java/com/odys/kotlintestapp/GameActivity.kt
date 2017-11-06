@@ -11,12 +11,6 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-        quit_button.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
         game()
 
     }
@@ -36,8 +30,15 @@ class GameActivity : AppCompatActivity() {
 
         buttonUpdate(location)
 
-        if (location.locationID == 0) {
+        quit_button.setOnClickListener {
+            loc=0
+            location = locations[loc]!!
+            description.text = location.description
             disableAllButtons()
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         up_button.setOnClickListener {
