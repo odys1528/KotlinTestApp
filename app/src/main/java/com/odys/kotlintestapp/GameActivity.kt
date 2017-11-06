@@ -3,6 +3,7 @@ package com.odys.kotlintestapp
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_game.*
 
 class GameActivity : AppCompatActivity() {
@@ -33,7 +34,7 @@ class GameActivity : AppCompatActivity() {
         quit_button.setOnClickListener {
             loc=0
             location = locations[loc]!!
-            description.text = location.description
+            Toast.makeText(this, location.description, Toast.LENGTH_LONG).show()
             disableAllButtons()
 
             val intent = Intent(this, MainActivity::class.java)
