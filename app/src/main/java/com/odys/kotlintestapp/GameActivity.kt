@@ -32,44 +32,251 @@ class GameActivity : AppCompatActivity() {
     fun game() {
         val locations = readLocationInfo(applicationContext.assets.open("locations_big.txt").reader(),
                 applicationContext.assets.open("directions_big.txt").reader())
-        var loc = 0//64
-
-        while (true) {
-
-            val location = locations[loc] ?: Location(0,
+        var loc = 64
+        var location = locations[loc] ?: Location(0,
                     "Sorry, something went wrong, so the game will terminate")
 
-            description.text = location.description
+        description.text = location.description
+        disableAllButtons()
 
-            if (location.locationID == 0) {
-                disableAllButtons()
-                break
+        location.exits.keys.forEach {
+            when(it) {
+                "U" -> up_button.isEnabled = true
+                "D" -> down_button.isEnabled = true
+                "N" -> north_button.isEnabled = true
+                "S" -> south_button.isEnabled = true
+                "E" -> east_button.isEnabled = true
+                "W" -> west_button.isEnabled = true
+                "NE" -> ne_button.isEnabled = true
+                "NW" -> nw_button.isEnabled = true
+                "SE" -> se_button.isEnabled = true
+                "SW" -> sw_button.isEnabled = true
             }
-            //todo wait for button click
-//            location.exits.keys.forEach {
-//                when(it) {
-//                    "U" -> up_button.isEnabled = true
-//                    "D" -> down_button.isEnabled = true
-//                    "N" -> north_button.isEnabled = true
-//                    "S" -> south_button.isEnabled = true
-//                    "E" -> east_button.isEnabled = true
-//                    "W" -> west_button.isEnabled = true
-//                    "NE" -> ne_button.isEnabled = true
-//                    "NW" -> nw_button.isEnabled = true
-//                    "SE" -> se_button.isEnabled = true
-//                    "SW" -> sw_button.isEnabled = true
-//                }
-//            }
-//
-//            val direction = readLine()?.toUpperCase() ?: "Z"
-//            if (location.exits.containsKey(direction)) {
-//                loc = location.exits[direction]!!
-//            }
-//            else {
-//                println("You can't go in that direction")
-//            }
-//
-//
         }
+
+        if (location.locationID == 0) {
+            disableAllButtons()
+        }
+
+        up_button.setOnClickListener {
+            Toast.makeText(this, "up", Toast.LENGTH_SHORT).show()
+            loc = location.exits["U"]!!
+            location = locations[loc]!!
+            description.text = location.description
+            disableAllButtons()
+            location.exits.keys.forEach {
+                when(it) {
+                    "U" -> up_button.isEnabled = true
+                    "D" -> down_button.isEnabled = true
+                    "N" -> north_button.isEnabled = true
+                    "S" -> south_button.isEnabled = true
+                    "E" -> east_button.isEnabled = true
+                    "W" -> west_button.isEnabled = true
+                    "NE" -> ne_button.isEnabled = true
+                    "NW" -> nw_button.isEnabled = true
+                    "SE" -> se_button.isEnabled = true
+                    "SW" -> sw_button.isEnabled = true
+                }
+            }
+        }
+
+        down_button.setOnClickListener {
+            Toast.makeText(this, "down", Toast.LENGTH_SHORT).show()
+            loc = location.exits["D"]!!
+            location = locations[loc]!!
+            description.text = location.description
+            disableAllButtons()
+            location.exits.keys.forEach {
+                when(it) {
+                    "U" -> up_button.isEnabled = true
+                    "D" -> down_button.isEnabled = true
+                    "N" -> north_button.isEnabled = true
+                    "S" -> south_button.isEnabled = true
+                    "E" -> east_button.isEnabled = true
+                    "W" -> west_button.isEnabled = true
+                    "NE" -> ne_button.isEnabled = true
+                    "NW" -> nw_button.isEnabled = true
+                    "SE" -> se_button.isEnabled = true
+                    "SW" -> sw_button.isEnabled = true
+                }
+            }
+        }
+
+        north_button.setOnClickListener {
+            Toast.makeText(this, "north", Toast.LENGTH_SHORT).show()
+            loc = location.exits["N"]!!
+            location = locations[loc]!!
+            description.text = location.description
+            disableAllButtons()
+            location.exits.keys.forEach {
+                when(it) {
+                    "U" -> up_button.isEnabled = true
+                    "D" -> down_button.isEnabled = true
+                    "N" -> north_button.isEnabled = true
+                    "S" -> south_button.isEnabled = true
+                    "E" -> east_button.isEnabled = true
+                    "W" -> west_button.isEnabled = true
+                    "NE" -> ne_button.isEnabled = true
+                    "NW" -> nw_button.isEnabled = true
+                    "SE" -> se_button.isEnabled = true
+                    "SW" -> sw_button.isEnabled = true
+                }
+            }
+        }
+
+        south_button.setOnClickListener {
+            Toast.makeText(this, "south", Toast.LENGTH_SHORT).show()
+            loc = location.exits["S"]!!
+            location = locations[loc]!!
+            description.text = location.description
+            disableAllButtons()
+            location.exits.keys.forEach {
+                when(it) {
+                    "U" -> up_button.isEnabled = true
+                    "D" -> down_button.isEnabled = true
+                    "N" -> north_button.isEnabled = true
+                    "S" -> south_button.isEnabled = true
+                    "E" -> east_button.isEnabled = true
+                    "W" -> west_button.isEnabled = true
+                    "NE" -> ne_button.isEnabled = true
+                    "NW" -> nw_button.isEnabled = true
+                    "SE" -> se_button.isEnabled = true
+                    "SW" -> sw_button.isEnabled = true
+                }
+            }
+        }
+
+        east_button.setOnClickListener {
+            Toast.makeText(this, "east", Toast.LENGTH_SHORT).show()
+            loc = location.exits["E"]!!
+            location = locations[loc]!!
+            description.text = location.description
+            disableAllButtons()
+            location.exits.keys.forEach {
+                when(it) {
+                    "U" -> up_button.isEnabled = true
+                    "D" -> down_button.isEnabled = true
+                    "N" -> north_button.isEnabled = true
+                    "S" -> south_button.isEnabled = true
+                    "E" -> east_button.isEnabled = true
+                    "W" -> west_button.isEnabled = true
+                    "NE" -> ne_button.isEnabled = true
+                    "NW" -> nw_button.isEnabled = true
+                    "SE" -> se_button.isEnabled = true
+                    "SW" -> sw_button.isEnabled = true
+                }
+            }
+        }
+
+        west_button.setOnClickListener {
+            Toast.makeText(this, "west", Toast.LENGTH_SHORT).show()
+            loc = location.exits["W"]!!
+            location = locations[loc]!!
+            description.text = location.description
+            disableAllButtons()
+            location.exits.keys.forEach {
+                when(it) {
+                    "U" -> up_button.isEnabled = true
+                    "D" -> down_button.isEnabled = true
+                    "N" -> north_button.isEnabled = true
+                    "S" -> south_button.isEnabled = true
+                    "E" -> east_button.isEnabled = true
+                    "W" -> west_button.isEnabled = true
+                    "NE" -> ne_button.isEnabled = true
+                    "NW" -> nw_button.isEnabled = true
+                    "SE" -> se_button.isEnabled = true
+                    "SW" -> sw_button.isEnabled = true
+                }
+            }
+        }
+
+        ne_button.setOnClickListener {
+            Toast.makeText(this, "north-east", Toast.LENGTH_SHORT).show()
+            loc = location.exits["NE"]!!
+            location = locations[loc]!!
+            description.text = location.description
+            disableAllButtons()
+            location.exits.keys.forEach {
+                when(it) {
+                    "U" -> up_button.isEnabled = true
+                    "D" -> down_button.isEnabled = true
+                    "N" -> north_button.isEnabled = true
+                    "S" -> south_button.isEnabled = true
+                    "E" -> east_button.isEnabled = true
+                    "W" -> west_button.isEnabled = true
+                    "NE" -> ne_button.isEnabled = true
+                    "NW" -> nw_button.isEnabled = true
+                    "SE" -> se_button.isEnabled = true
+                    "SW" -> sw_button.isEnabled = true
+                }
+            }
+        }
+
+        nw_button.setOnClickListener {
+            Toast.makeText(this, "north-west", Toast.LENGTH_SHORT).show()
+            loc = location.exits["NW"]!!
+            location = locations[loc]!!
+            description.text = location.description
+            disableAllButtons()
+            location.exits.keys.forEach {
+                when(it) {
+                    "U" -> up_button.isEnabled = true
+                    "D" -> down_button.isEnabled = true
+                    "N" -> north_button.isEnabled = true
+                    "S" -> south_button.isEnabled = true
+                    "E" -> east_button.isEnabled = true
+                    "W" -> west_button.isEnabled = true
+                    "NE" -> ne_button.isEnabled = true
+                    "NW" -> nw_button.isEnabled = true
+                    "SE" -> se_button.isEnabled = true
+                    "SW" -> sw_button.isEnabled = true
+                }
+            }
+        }
+
+        se_button.setOnClickListener {
+            Toast.makeText(this, "south-east", Toast.LENGTH_SHORT).show()
+            loc = location.exits["SE"]!!
+            location = locations[loc]!!
+            description.text = location.description
+            disableAllButtons()
+            location.exits.keys.forEach {
+                when(it) {
+                    "U" -> up_button.isEnabled = true
+                    "D" -> down_button.isEnabled = true
+                    "N" -> north_button.isEnabled = true
+                    "S" -> south_button.isEnabled = true
+                    "E" -> east_button.isEnabled = true
+                    "W" -> west_button.isEnabled = true
+                    "NE" -> ne_button.isEnabled = true
+                    "NW" -> nw_button.isEnabled = true
+                    "SE" -> se_button.isEnabled = true
+                    "SW" -> sw_button.isEnabled = true
+                }
+            }
+        }
+
+        sw_button.setOnClickListener {
+            Toast.makeText(this, "south-west", Toast.LENGTH_SHORT).show()
+            loc = location.exits["SW"]!!
+            location = locations[loc]!!
+            description.text = location.description
+            disableAllButtons()
+            location.exits.keys.forEach {
+                when(it) {
+                    "U" -> up_button.isEnabled = true
+                    "D" -> down_button.isEnabled = true
+                    "N" -> north_button.isEnabled = true
+                    "S" -> south_button.isEnabled = true
+                    "E" -> east_button.isEnabled = true
+                    "W" -> west_button.isEnabled = true
+                    "NE" -> ne_button.isEnabled = true
+                    "NW" -> nw_button.isEnabled = true
+                    "SE" -> se_button.isEnabled = true
+                    "SW" -> sw_button.isEnabled = true
+                }
+            }
+        }
+
     }
 }
