@@ -2,7 +2,6 @@ package com.odys.kotlintestapp
 
 import java.io.Reader
 
-
 fun readLocationInfo(reader1: Reader, reader2: Reader) : Map<Int, Location> {
 
     val locations = mutableMapOf<Int, Location>()
