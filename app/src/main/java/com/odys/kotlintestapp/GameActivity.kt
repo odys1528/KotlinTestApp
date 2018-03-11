@@ -23,8 +23,8 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun game() {
-        val locations = readLocationInfo(applicationContext.assets.open("locations_big.txt").reader(),
-                applicationContext.assets.open("directions_big.txt").reader())
+        val locations = readLocationInfo(applicationContext.assets.open("locations.txt").reader(),
+                applicationContext.assets.open("directions.txt").reader())
         var loc = 64
         var location = locations[loc] ?: Location(0,
                     "Sorry, something went wrong, so the game will terminate")
